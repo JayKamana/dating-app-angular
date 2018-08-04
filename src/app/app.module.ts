@@ -11,7 +11,7 @@ import { AuthService } from './_services/auth.service';
 @NgModule({
   declarations: [AppComponent, ValueComponent, NavComponent],
   imports: [BrowserModule, HttpModule, FormsModule],
-  providers: [],
-  bootstrap: [AppComponent, AuthService]
+  providers: [AuthService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -13,7 +13,7 @@ export class AuthService {
     const headers = new Headers({ 'content-type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
     return this.http
-      .post(this.baseUrl + 'login', model, options)
+      .post(this.baseUrl + '/login', model, options)
       .map((response: Response) => {
         const user = response.json();
         if (user) {
