@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Dating App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Matches</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Lists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Messages</a>
+      </li>
+    </ul>
+    <form #loginForm="ngForm" class="form-inline" (ngSubmit)="login()">
+      <label class="sr-only" for="username">Username</label>
+      <input type="text" #username="ngModel" class="form-control mb-2 mr-sm-2" name="username" id="username" placeholder="Username"
+        required [(ngModel)]="model.username">
+      <label class="sr-only" for="password">Password</label>
+      <input type="password" #password="ngModel" class="form-control mb-2 mr-sm-2" id="password" name="password" placeholder="Password"
+        required [(ngModel)]="model.password">
+      <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary mb-2">Submit</button>
+    </form>
+  </div>
+</nav>
+
+
+<!-- <nav class="navbar navbar-light bg-dark">
+  <a class="navbar-brand">Navbar</a>
+
+</nav> -->
