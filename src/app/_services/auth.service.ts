@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { tokenNotExpired } from 'angular2-jwt';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -29,6 +30,10 @@ export class AuthService {
     return this.http
       .post(this.baseUrl + '/register', model, this.requestOptions())
       .catch(this.handleError);
+  }
+
+  loggedIn() {
+    return tokenNotExpired('token');
   }
 
   private requestOptions() {
