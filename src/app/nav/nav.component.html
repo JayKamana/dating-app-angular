@@ -6,7 +6,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Matches</a>
       </li>
@@ -17,7 +17,7 @@
         <a class="nav-link" href="#">Messages</a>
       </li>
     </ul>
-    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline" (ngSubmit)="login()">
+    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline ml-auto" (ngSubmit)="login()">
       <label class="sr-only" for="username">Username</label>
       <input type="text" #username="ngModel" class="form-control mb-2 mr-sm-2" name="username" id="username" placeholder="Username"
         required [(ngModel)]="model.username">
@@ -27,16 +27,13 @@
       <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary mb-2">Submit</button>
     </form>
 
-    <ul *ngIf="loggedIn()" class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a (click)="logout()" class="nav-link" href="#">Logout</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+    <ul *ngIf="loggedIn()" class="navbar-nav">
+      <li class="nav-item dropdown" dropdown>
+        <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
           Welcome {{authService.decodedToken?.unique_name | titlecase}}
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">
             <i class="fa fa-user"></i> Edit Profile</a>
           <div class="dropdown-divider"></div>

@@ -10,9 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
 
+import { BsDropdownModule } from 'ngx-bootstrap';
+
 @NgModule({
   declarations: [AppComponent, NavComponent, HomeComponent, RegisterComponent],
-  imports: [BrowserModule, HttpModule, FormsModule],
+  imports: [BrowserModule, HttpModule, FormsModule, BsDropdownModule.forRoot()],
   providers: [AuthService, AlertifyService],
   bootstrap: [AppComponent]
 })
